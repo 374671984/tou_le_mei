@@ -30,6 +30,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/onlinecreateroomwaiting/onlinecreateroomwaiting",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
