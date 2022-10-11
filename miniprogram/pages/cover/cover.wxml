@@ -1,0 +1,17 @@
+<!--pages/cover/cover.wxml-->
+<!-- <button type="primary" bindtap="upImg">上传图片</button> -->
+<!-- 背景 -->
+<image class="backgroundImage" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/background/cover.jpg?sign=1f7fcc1566de5bc3b92d57f38a0b4f09&t=1665469096"></image> 
+<!-- 标题 -->
+<view class="title">骰了没</view>
+<!-- 开始游戏按钮 -->
+<button class="startGame" wx:if="{{!userInfo}}" bindtap="login">开始游戏</button>
+<!-- 登录 -->
+<view wx:else>
+  <!-- <image class="usertouxiang" src="{{userInfo.avatarUrl}}"></image> -->
+  <!-- <text class="nicheng">{{userInfo.nickName}}</text> -->
+  <!-- <button bindtap="loginOut">退出登录</button> -->
+</view>
+
+
+ 

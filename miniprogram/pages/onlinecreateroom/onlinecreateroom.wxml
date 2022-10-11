@@ -1,0 +1,12 @@
+<!--pages/onlinecreateroom/onlinecreateroom.wxml-->
+<image class="backgroundImg" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/background/online_login.jpg?sign=6a6151574ae6d9aa4a525b02c78905b7&t=1665472264"></image>
+<view class="rec0">
+  <view class="_title">创建对局</view>
+  <view class="rec1">
+    <view class="text" bindtap = "fetchId">获取您的对局ID：</view>
+    <view class="_id" >{{id}}</view>
+  </view>
+  <view class="rec2">
+    <view class="text1" bindtap="enter">进入</view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/onlineselect/onlineselect.wxml-->
+<image class="backgroundImage" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/background/online_login.jpg?sign=6a6151574ae6d9aa4a525b02c78905b7&t=1665472264" lazy-load="true"></image>
+<view>
+  <button class="btn1" bindtap="go_create">
+    <text>创建对局</text>
+  </button>
+  <button class="btn2" bindtap="go_join">
+    <text>加入对局</text>
+  </button>
+</view>

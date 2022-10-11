@@ -1,0 +1,44 @@
+/* pages/cover/cover.wxss */
+.backgroundImage{
+  position: fixed;
+  /*background-size: 100% 100%;*/
+  height: 100%;
+  width: 100%;
+  z-index: -1;  /*让图片置于最底层*/
+}
+.title{
+  color: ivory;
+  display: flex;
+  font-size:100rpx; 
+  top: 100rpx;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: '站酷快乐体';
+  /*margin-top: 90rpx;*/
+}
+.startGame{
+  font-family: '站酷快乐体';
+  /*margin-top: 850rpx;*/
+  position: relative;
+  top: 800rpx;
+  background-color: rgb(255,187,0);  
+  color: white;
+  border-radius: 24rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size:60rpx; 
+  text-shadow: 2px 2px 4px grey; /*按钮文字阴影*/
+  box-shadow: 0px 9px #999;
+  cursor: pointer; /* 手型鼠标 */
+}
+/*动画效果*/
+.startGame:hover {background-color: rgb(255,187,0);  }
+.startGame:active {
+  background-color: rgb(255,187,0);  
+  box-shadow: 0 10rpx #666;
+  transform: translateY(4px);
+}
+

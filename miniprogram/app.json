@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/cover/cover",
+    "pages/modelselection/modelselection",
+    "components/chatroom/chatroom",
+    "pages/ai/ai",
+    "pages/self/self",
+    "pages/onlinelogin/onlinelogin",
+    "pages/onlineselect/onlineselect",
+    "pages/onlinecreateroom/onlinecreateroom",
+    "pages/onlinejoinroom/onlinejoinroom",
+    "pages/onlinecreateroomwaiting/onlinecreateroomwaiting"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "骰了没",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

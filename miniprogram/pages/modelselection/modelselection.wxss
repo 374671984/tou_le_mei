@@ -1,0 +1,141 @@
+/* pages/modelselection/modelselection.wxss */
+.backgroundImage{
+  position: fixed;/* 定位浏览窗口 */
+  /*background-size: 100% 100%;*/
+  height: 100%;
+  width: 100%;
+  z-index: -1;  /*让图片置于最底层*/
+}
+.title{
+  position: relative;
+  color:  rgba(0, 0, 0, 0.76);  
+  font-size:90rpx; 
+  align-items: center;
+  justify-content: center;
+  /* font-family: monospace; */
+  top: 30rpx;
+  /*font-family: '站酷快乐体';*/
+  text-align: center;
+}
+.begin_self{
+  background-color: #81B337;
+  color: rgb(253,247,247);
+  border-radius: 20rpx;  /*外边框圆角*/
+  display: flex;  /* 弹性布局 */
+  flex-direction: row; /*子元素按行排布*/
+  align-items: center;  /*使元素居中,在交叉轴上居中对齐*/
+  justify-content: center; /*水平居中*/
+  height: 110rpx;  /*按钮组件高*/
+  width: 150rpx;  /*按钮组件宽*/
+  font-size: 40rpx;  /*文本大小*/
+  position: relative;/*相对定位*/
+  top: 270rpx;/*相对上一个组件顶部的位置*/
+  box-shadow: 8rpx 10rpx black;  /*按钮阴影*/
+}
+/*动画效果*/
+.begin_self:hover {background-color: #81B337;  }
+.begin_self:active {
+  background-color: #81B337;  
+  box-shadow: 0 10rpx #666;
+  transform: translateY(4px);
+}
+.begin_ai{
+  background-color:#81B337;
+  color: rgb(253,247,247);
+  border-radius: 20rpx;  /*外边框圆角*/
+  display: flex;  /* 弹性布局 */
+  flex-direction: row; /*子元素按行排布*/
+  align-items: center;  /*使元素居中,在交叉轴上居中对齐*/
+  justify-content: center; /*水平居中*/
+  height: 110rpx;  /*按钮组件高*/
+  width: 240rpx;  /*按钮组件宽*/
+  font-size: 40rpx;  /*文本大小*/
+  position: relative;/*相对定位*/
+  top: 320rpx;/*相对上一个组件顶部的位置*/
+  box-shadow: 8rpx 10rpx black;  /*按钮阴影*/
+}
+/*动画效果*/
+.begin_ai {background-color: #81B337;  }
+.begin_ai:active {
+  background-color: #81B337;  
+  box-shadow: 0 10rpx #666;
+  transform: translateY(4px);
+}
+.begin_online{
+  background-color:#81B337;
+  color: rgb(253,247,247);
+  border-radius: 20rpx;  /*外边框圆角*/
+  display: flex;  /* 弹性布局 */
+  flex-direction: row; /*子元素按行排布*/
+  align-items: center;  /*使元素居中,在交叉轴上居中对齐*/
+  justify-content: center; /*水平居中*/
+  height: 110rpx;  /*按钮组件高*/
+  width: 150rpx;  /*按钮组件宽*/
+  font-size: 40rpx;  /*文本大小*/
+  position: relative;/*相对定位*/
+  top: 370rpx;/*相对上一个组件顶部的位置*/
+  box-shadow: 8rpx 10rpx black;  /*按钮阴影*/
+}
+/*动画效果*/
+.begin_online:hover {background-color: #81B337;  }
+.begin_online:active {
+  background-color: #81B337;  
+  box-shadow: 0 10rpx #666;
+  transform: translateY(4px);
+}
+.see_scores{
+  background-color:#c6d3a8 ;
+  color: rgb(253,247,247);
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  position: relative;
+  top: 595rpx;
+  left: -290rpx;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 8rpx 10rpx black;  /*按钮阴影*/
+}
+/*动画效果*/
+.see_scores:hover {background-color: #81B337;  }
+.see_scores:active {
+  background-color: #81B337;  
+  box-shadow: 0 10rpx #666;
+  transform: translateY(4px);
+}
+.see_rule{
+  background-color:#c6d3a8; 
+  color: rgb(253,247,247);
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  position: relative;
+  top: 455rpx;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 8rpx 10rpx black;  /*按钮阴影*/
+}
+/*动画效果*/
+.see_rule:hover {background-color: #81B337;  }
+.see_rule:active {
+  background-color: #81B337;  
+  box-shadow: 0 10rpx #666;
+  transform: translateY(4px);
+}
+.see_setting{
+  background-color:#c6d3a8;
+  color: rgb(253,247,247);
+  border-radius: 20rpx;  /*外边框圆角*/
+  font-size: 32rpx;
+  position: relative;/*相对定位*/
+  top: 317rpx;
+  left: 290rpx;
+  flex-direction: column; 
+  justify-content: center;
+  box-shadow: 8rpx 10rpx black;  /*按钮阴影*/
+}
+/*动画效果*/
+.see_setting:hover {background-color: #81B337;  }
+.see_setting:active {
+  background-color: #81B337;  
+  box-shadow: 0 10rpx #666;
+  transform: translateY(4px);
+}

@@ -1,0 +1,39 @@
+/* pages/onlineselect/onlineseect.wxss */
+.backgroundImage{
+  position: fixed;
+  /*background-size: 100% 100%;*/
+  height: 100%;
+  width: 100%;
+  z-index: -1;  /*让图片置于最底层*/
+}
+.btn1{
+  background-color: #0DAFD1;
+  color: rgb(253,247,247);
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 150rpx;
+  font-size: 40rpx;
+  position: relative;
+  top: 50rpx;
+  box-shadow: 4rpx 4rpx 10rpx grey;  /*按钮阴影*/
+}
+/*.btn1::after {
+  border: 0; 
+}*/
+.btn2{
+  background-color: #0DAFD1;
+  color: rgb(253,247,247);
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 150rpx;
+  font-size: 40rpx;
+  position: relative;
+  top: 80rpx;
+  box-shadow: 4rpx 4rpx 10rpx grey;  /*按钮阴影*/
+}

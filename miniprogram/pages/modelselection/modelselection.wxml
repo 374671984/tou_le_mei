@@ -1,0 +1,54 @@
+<!--pages/modelselection/modelselection.wxml-->
+<image class="backgroundImage" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/background/modelselection.jpg?sign=91f3177de3401baaa12dde3382e1b448&t=1665469239"></image>
+<!-- 标题 -->
+<view class="title">骰了没</view>
+<!-- 本地、人机、在线对战按钮 -->
+<view>
+  <!-- 本地对战 -->
+  <button class="begin_self" bindtap="go_self">
+    <text>本地对战</text>
+  </button>
+  <!-- 人机对战 -->
+  <button class="begin_ai" bindtap="go_ai">
+    <text>人机对战</text>
+  </button>
+  <!-- 在线对战按钮 -->
+  <button class="begin_online" bindtap="go_online">
+    <text>在线对战</text>
+  </button>
+</view>
+<!-- 战绩、规则、设置按钮 -->
+<view>
+  <!-- 战绩 -->
+  <button class="see_scores" style="width:168rpx;height:140rpx"bindtap="scores">
+    <view class="jiangbei">🏆</view>
+    <view>战绩</view>
+  </button>
+  <!-- 规则 -->
+  <button class="see_rule" style="width:168rpx;height:140rpx" bindtap="rule">
+    <view class="jiangbei">📕</view>
+    <view>规则</view>
+  </button>
+  <!-- 设置 -->
+  <button class="see_setting" style="width:168rpx;height:140rpx" bindtap="setting">
+    <view class="jiangbei">⚙</view>
+    <view>设置</view>
+  </button>
+  <!-- 规则的视图弹窗轮播图片 -->
+  <modal title="规则" hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel">
+    <swiper class="banners" indicator-dots="true" >
+      <swiper-item>
+        <image class="image" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/rule/rule1.png?sign=3a2a6e3372faa79c6388deb6b421576c&t=1665469264" mode='aspectFill'></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="image" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/rule/rule2.png?sign=ac429f486e5b542b29d3a18a13cc9d1a&t=1665469284" mode='aspectFill'></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="image" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/rule/rule3.png?sign=003ab1363a424b14fa007afa5ee935a8&t=1665469301" mode='aspectFill'></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="image" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/rule/rule4.png?sign=2d3d19dd6cf3b7dee981d9911286cd91&t=1665469316" mode='aspectFill'></image>
+      </swiper-item>
+    </swiper>
+  </modal>
+</view>
