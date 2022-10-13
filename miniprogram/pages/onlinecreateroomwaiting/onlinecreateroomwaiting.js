@@ -6,6 +6,9 @@ Page({
     roomid:'',
     flag:0
   },
+    /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
     this.setData({
       roomid:options.roomid
@@ -16,11 +19,11 @@ Page({
   listen(){
     var that=this
     wx.request({
-      url: 'https://express-q57x-11471-5-1314258770.sh.run.tcloudbase.com/api/count' + app.globalData.uuid + '/last',
+      url: 'http://my-test-5gsknxhh42d2909f-1314291073.tcloudbaseapp.com/api/game/' + app.globalData.uuid + '/last',
       data: {
       },
       header: { 
-        "Content-Type": 'application/json',
+        "Content-Type": "application/x-www-form-urlencoded" ,//用于post
         "Authorization": wx.getStorageSync('token'),
         // "Content-Type": "application/x-www-form-urlencoded" 用于post
       },
@@ -64,6 +67,9 @@ Page({
       complete: function (res) { },
     })
   },
+    /**
+   * 生命周期函数--监听页面显示
+   */
   onShow(){
 		let that = this
 		this.setData({
@@ -72,12 +78,18 @@ Page({
 			}, 6000),
 		})
   },
+    /**
+   * 生命周期函数--监听页面隐藏
+   */
   onHide: function () {
 		clearInterval(this.data.timer)
 		this.setData({
 			timer: null,
 		})
-	},
+  },
+    /**
+   * 生命周期函数--监听页面卸载
+   */
 	onUnload: function () {
 		clearInterval(this.data.timer)
 		this.setData({

@@ -10,19 +10,8 @@ App({
         //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
         //   如不填则使用默认环境（第一个创建的环境）
         // env: 'my-env-id',
-        env: "prod-4g2liiho4036e03a",
+        env: "my-test-5gsknxhh42d2909f",
         traceUser: true,
-      });
-      wx.cloud.callContainer({
-        url: 'https://10.11.110.116:3306/api/count',
-        config: {
-          env: "prod-4g2liiho4036e03a", // 微信云托管环境ID，不能为空，替换自己的
-        },
-        path: '/api/count', 
-        method: 'POST',
-        header: {
-          'content': 'application/json',
-        }
       });
     }
 

@@ -1,2 +1,149 @@
 <!--pages/self/self.wxml-->
-<text>pages/self/self.wxml</text>
+<!-- 背景 -->
+<image class="backgroundImg" src='https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/background/chat.jpg?sign=c7374abcc50ba1436f5c097945c7176a&t=1665586565' lazy-load="true"></image>
+
+<!-- 九宫格区 -->
+<view class="qipan">
+  <!-- 玩家1九宫格区（上） -->
+  <ul class="top" id="top">
+    <li>
+      <image src="/miniprogram/image/0.png" id="top1_1" bindinput="top1_1"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="top1_2" bindinput="top1_2"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="top1_3" bindinput="top1_3"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="top2_1" bindinput="top2_1"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="top2_2" bindinput="top2_2"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="top2_3" bindinput="top2_3"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="top3_1" bindinput="top3_1"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="top3_2" bindinput="top3_2"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="top3_3" bindinput="top3_3"></image>
+    </li>
+  </ul>
+  <!-- 骰子 -->
+  <image class="tou" src="/miniprogram/image/0.png" bindinput="touClick" id="touId"></image>
+  <!-- player2九宫格区 -->
+  <ul class="down" id="down">
+    <li>
+      <image src="/miniprogram/image/0.png" id="down1_1" bindinput="down1_1"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="down1_2" bindinput="down1_2"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="down1_3" bindinput="down1_3"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="down2_1" bindinput="down2_1"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="down2_2" bindinput="down2_2"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="down2_3" bindinput="down2_3"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="down3_1" bindinput="down3_1"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="down3_2" bindinput="down3_2"></image>
+    </li>
+    <li>
+      <image src="/miniprogram/image/0.png" id="down3_3" bindinput="down3_3"></image>
+    </li>
+  </ul>
+</view>
+
+
+<!-- 放置区 -->
+<!-- <button class = "place">place:{{place_area[0]}}</button> -->
+<view class="cards-rectangle2">
+  <image class="cards-Img2" src="{{placetop}}" lazy-load="true"></image>
+  <view class="cards-character">牌数：{{cnt_place_area}}</view>
+</view>
+<!-- 玩家1(上) -->
+<view class="player1">
+  <!-- 玩家1头像 -->
+  <view>
+    <!-- 头像 -->
+    <image src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/touxiang/player1.png?sign=74cd032f2f98608c6bf81cc0cab36abe&t=1665586945" class="player1_touxiang" lazy-load="true"></image>
+    <!-- 托管 -->
+    <view bindtap = "host_switch1" class="player1_tuoguan">🐶</view>
+    <view class="player1_name">player1</view>
+    <image wx:if="{{turn0==1}}" class="tag1" src="https://636c-cloud1-8gizt3c91a9e2cee-1307872384.tcb.qcloud.la/images/%E6%A0%87%E8%AE%B0.png?sign=f93993ffaac3ec56627ce541ffd8cecd&t=1635006951"></image>
+    <!-- 玩家1剩余牌数 -->
+    <view class="player1_total">Total：{{cnt1_player1_area_grass+cnt1_player1_area_hearts+cnt1_player1_area_spade+cnt1_player1_area_square}}</view>
+  </view>
+
+  <!-- 玩家1手牌区 -->
+  <!-- <button class = "play1_grass" bindtap = "match_player1_grass">player1_grass:{{player1_area_grass[0]}}</button> -->
+  <view class="player1-meihua">
+    <view class="player1-character">牌数：{{cnt1_player1_area_grass}}</view>
+    <image class="player1-Img" bindtap = "match_player1_grass" src="{{player1_area_grass_top}}" lazy-load="true"></image>
+  </view>
+  <!-- <button class = "play1_hearts" bindtap = "match_player1_hearts">player1_hearts:{{player1_area_hearts[0]}}</button> -->
+  <view class="player1-hongxin">
+    <view class="player1-character">牌数：{{cnt1_player1_area_hearts}}</view>
+    <image class="player1-Img" bindtap = "match_player1_hearts" src="{{player1_area_hearts_top}}" lazy-load="true"></image>
+  </view>
+<!-- <button class = "play1_spade" bindtap = "match_player1_spade">player1_spade:{{player1_area_spade[0]}}</button> -->
+  <view class="player1-heitao">
+    <view class="player1-character">牌数：{{cnt1_player1_area_spade}}</view>
+    <image class="player1-Img" bindtap = "match_player1_spade" src="{{player1_area_spade_top}}" lazy-load="true"></image>
+  </view>
+  <!-- <button class = "play1_square" bindtap = "match_player1_square">player1_square:{{player1_area_square[0]}}</button> -->
+  <view class="player1-fangkuai">
+    <view class="player1-character">牌数：{{cnt1_player1_area_square}}</view>
+    <image class="player1-Img" bindtap = "match_player1_square" src="{{player1_area_square_top}}" lazy-load="true"></image>
+  </view>
+</view>
+
+<!-- 玩家2（下） -->
+<view class="player2">
+  <!-- 玩家2手牌区 -->
+  <!-- <button class = "play2_grass" bindtap = "match_player2_grass">player2_grass:{{player2_area_grass[0]}}</button> -->
+  <view class="player1-meihua">
+    <view class="player1-character">牌数：{{cnt2_player2_area_grass}}</view>
+    <image class="player1-Img" bindtap = "match_player2_grass" src="{{player2_area_grass_top}}" lazy-load="true"></image>
+  </view>
+  <!-- <button class = "play2_hearts" bindtap = "match_player2_hearts">player2_hearts:{{player2_area_hearts[0]}}</button> -->
+  <view class="player1-hongxin">
+    <view class="player1-character">牌数：{{cnt2_player2_area_hearts}}</view>
+    <image class="player1-Img" bindtap = "match_player2_hearts" src="{{player2_area_hearts_top}}" lazy-load="true"></image>
+  </view>
+  <!-- <button class = "play2_spade" bindtap = "match_player2_spade">player2_spade:{{player2_area_spade[0]}}</button> -->
+  <view class="player1-heitao">
+    <view class="player1-character">牌数：{{cnt2_player2_area_spade}}</view>
+    <image class="player1-Img" bindtap = "match_player2_spade" src="{{player2_area_spade_top}}" lazy-load="true"></image>
+  </view>
+  <!-- <button class = "play2_square" bindtap = "match_player2_square">player2_square:{{player2_area_square[0]}}</button> -->
+  <view class="player1-fangkuai">
+    <view class="player1-character">牌数：{{cnt2_player2_area_square}}</view>
+    <image class="player1-Img" bindtap = "match_player2_square" src="{{player2_area_square_top}}" lazy-load="true"></image>
+  </view>
+  <!-- 玩家2头像 -->
+  <view>
+    <!-- 头像 -->
+    <image src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/touxiang/player2.png?sign=b48bfd616fac8776e4bf77d118727e63&t=1665586622" class="player2_touxiang" lazy-load="true"></image>
+    <!-- 托管 -->
+    <view bindtap = "host_switch2" class="player2_tuoguan">🐶</view>
+    <view class="player2_name">player2</view>
+    <image wx:if="{{turn0==2}}" class="tag2" src="https://636c-cloud1-8gizt3c91a9e2cee-1307872384.tcb.qcloud.la/images/%E6%A0%87%E8%AE%B0.png?sign=f93993ffaac3ec56627ce541ffd8cecd&t=1635006951"></image>
+    <!-- 玩家2剩余牌数 -->
+    <view class="player2_total">Total：{{cnt2_player2_area_grass+cnt2_player2_area_hearts+cnt2_player2_area_spade+cnt2_player2_area_square}}</view>
+  </view>
+</view>

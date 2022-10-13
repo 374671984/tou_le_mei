@@ -21,14 +21,14 @@ Page({
   sign(){
      console.log(this.data.student_id)
      console.log(this.data.password)
-    wx.cloud.callContainer({ 
-      url: 'https://10.11.110.116:3306/api/count',
+    wx.request({
+      url: 'http://my-test-5gsknxhh42d2909f-1314291073.tcloudbaseapp.com/api/user/login',
       config: {
-        env: "prod-4g2liiho4036e03a"
+        env: "my-test-5gsknxhh42d2909f"
       },
-      path: "/api/count",
       header: {
-        "content-type": "application/json"
+        "Content-Type": "application/x-www-form-urlencoded" ,//用于post
+        "Authorization": "Bearer {{your_token}}",
       },
       method: "POST",
       data: {

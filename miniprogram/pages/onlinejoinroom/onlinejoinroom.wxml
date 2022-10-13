@@ -1,2 +1,13 @@
 <!--pages/onlinejoinroom/onlinejoinroom.wxml-->
-<text>pages/onlinejoinroom/onlinejoinroom.wxml</text>
+<image class="backgroundImg" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/background/online_login.jpg?sign=6a6151574ae6d9aa4a525b02c78905b7&t=1665472264"></image>
+<view class="rec0">
+  <view class="_title">加入对局</view>
+  <view class="rec1">
+    <view class="text">请输入对局ID：</view>
+    <input placeholder="请输入对局ID" class="rec_input" bindinput="getuid"></input>
+  </view>
+  <view class="rec2">
+    <view class="text1" bindtap="define">确定</view>
+  </view>
+</view>
+
