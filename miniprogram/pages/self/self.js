@@ -1,7 +1,5 @@
 // pages/self/self.js
-// var touArrays = ["../image/0.png","../image/1.png","../image/2.png","../image/3.png","../image/4.png","../image/5.png","../image/6.png"];
-// var topArrays = ["../image/0.png","../image/1.png","../image/2.png","../image/3.png","../image/4.png","../image/5.png","../image/6.png"];
-// var downArrays = ["../image/0.png","../image/1.png","../image/2.png","../image/3.png","../image/4.png","../image/5.png","../image/6.png"];
+var app = getApp();
 var ownBoard = [0,0,0,0,0,0,0,0,0];
 var otherBoard = [0,0,0,0,0,0,0,0,0];
 var figure ; //骰子点数
@@ -26,6 +24,8 @@ Page({
     down_3_score : "0",
     top_score : "0",
     down_score : "0",
+    cnt1: app.cnt1,
+    cnt2:app.cnt2,
     top11 : 'https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/qipan/0.png?sign=ae050d4cc12c676b7ce99e80d1ec1646&t=1665694187',
     top12 : 'https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/qipan/0.png?sign=ae050d4cc12c676b7ce99e80d1ec1646&t=1665694187',
     top13 : 'https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/qipan/0.png?sign=ae050d4cc12c676b7ce99e80d1ec1646&t=1665694187',
@@ -570,6 +570,8 @@ Page({
     }
     if(i === 9){
       console.log("点击了跳转")
+      app.cnt1 = topScore
+      app.cnt2 = downScore
       wx.navigateTo({
         url: '/pages/jiesuan/jiesuan',
       })
@@ -577,6 +579,8 @@ Page({
     }
     if(j === 9){
       console.log("点击了跳转")
+      app.cnt1 = topScore
+      app.cnt2 = downScore
       wx.navigateTo({
         url: '/pages/jiesuan/jiesuan',
       })
@@ -633,7 +637,7 @@ Page({
   },
   //AI实现，输入当前轮次己方的棋盘情况、对方的棋盘情况和己方本轮次随机得到的骰子点数，再返回下一步要走哪里
   nextStap(ownBoard=[],otherBoard=[],figure){
-    //本模式为手动，这边也可以用AI，计算ownBoard,otherBoard，返回下一步要走哪里
+    //用AI，计算ownBoard,otherBoard，返回下一步要走哪里
     // 玩家2落点
     if(centreState === 0 && downState === 1 && turn === 2 && hosted2 === 1){
       for(var x = 0 ; x < 9 ; x++){

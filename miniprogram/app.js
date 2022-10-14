@@ -14,11 +14,12 @@ App({
         traceUser: true,
       });
     }
-
     this.globalData = {};
   },
   globalData:{
     token: wx.getStorageSync('token'),
     uuid: wx.getStorageSync('uuid'),
+    cnt1: 0,
+    cnt2: 0,
   },
 });

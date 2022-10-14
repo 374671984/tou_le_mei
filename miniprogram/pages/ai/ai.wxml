@@ -1,4 +1,4 @@
-<!--pages/ai/ai.wxml-->
+<!--pages/self/self.wxml-->
 <!-- 背景 -->
 <image class="backgroundImg" src='https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/background/online_createroom_waitting.jpg?sign=385d5caac5d998c00806eb2d544245de&t=1665473783' lazy-load="true"></image>
 
@@ -125,4 +125,3 @@
 
   </view>
 </view>
-

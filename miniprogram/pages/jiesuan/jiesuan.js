@@ -1,66 +1,36 @@
 // pages/jiesuan/jiesuan.js
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
+  data:{
+    cnt1 : app.cnt1,
+    cnt2 : app.cnt2,
+    win : 0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  onLoad(){
+    console.log('cnt1:',this.data.cnt1)
+    console.log('cnt2:',this.data.cnt2)
+    if(parseInt(this.data.cnt1)<parseInt(this.data.cnt2)){
+      console.log('玩家一胜利！')
+    } 
+    else if(parseInt(this.data.cnt1)>parseInt(this.data.cnt2)){
+      console.log('玩家二胜利！')
+      this.setData({
+        win:1
+      })
+    }
+    else
+      console.log('平局了！')
+    console.log(this.data.win)
+    
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  go_self(){
+    wx.navigateTo({
+      url: '/pages/self/self',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  go_select(){
+    wx.navigateTo({
+      url: '/pages/modelselection/modelselection',
+    })
   }
 })

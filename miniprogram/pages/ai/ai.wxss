@@ -1,4 +1,4 @@
-/* pages/ai/ai.wxss */
+/* pages/self/self.wxss */
 .backgroundImg{
   position: fixed;
   /*background-size: 100% 100%;*/
@@ -169,22 +169,22 @@
 
 /* player1分数 */
 .player1-score{
-  background: rgb(100, 100, 100);
+  background: orange;
   width: 100rpx;
-  height: 450rpx;
+  height: 300rpx;
   position: absolute;
   right: -30rpx;
-  top: -200rpx;
+  top: -140rpx;
   text-align: center;
 }
 
 /* player2分数 */
 .player2-score{
-  background: rgb(100, 100, 100);
+  background: orange;
   width: 100rpx;
-  height: 450rpx;
+  height: 300rpx;
   position: absolute;
   right: -30rpx;
-  top: 220rpx;
+  top: 300rpx;
   text-align: center;
 }
