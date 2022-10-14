@@ -632,23 +632,270 @@ Page({
     }
   },
   //AI实现，输入当前轮次己方的棋盘情况、对方的棋盘情况和己方本轮次随机得到的骰子点数，再返回下一步要走哪里
-  nextStap(ai_ownBoard=[],ai_otherBoard=[],figure){
+  nextStap(ownBoard=[],otherBoard=[],figure){
     //本模式为手动，这边也可以用AI，计算ownBoard,otherBoard，返回下一步要走哪里
     // 玩家2落点
     if(centreState === 0 && downState === 1 && turn === 2 && hosted2 === 1){
       for(var x = 0 ; x < 9 ; x++){
-        if(ai_ownBoard[x] === 0){
-          console.log("玩家2落点" + x)
-          return(x)
+        //对方棋盘中有和当前骰子点数相同的格子
+        if(otherBoard[x] === figure){
+          // 判定行数
+          // 第一行
+          if(0 < x && x < 3){
+            //如果己方第一行未满
+            for(var y = 0 ; y < 3 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+            //己方第一行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 3 ; y < 9 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+          }
+          // 第二行
+          if(3 < x && x < 6){
+            //如果己方第二行未满
+            for(var y = 3 ; y < 6 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+            //己方第二行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 0 ; y < 9 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+          }
+          // 第三行
+          if(6 < x && x < 9){
+            //如果己方第三行未满
+            for(var y = 6 ; y < 9 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+            //己方第三行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 0 ; y < 6 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+          }
+        }
+      }
+      //对方棋盘没有和己方棋盘相同的点数
+      for(var x = 0 ; x < 9 ; x++){
+        //判断己方棋盘有没有相同的点数，有就放在同一行
+        //己方有相同点数的格子
+        if(ownBoard[x] === figure){
+          // 判定行数
+          // 第一行
+          if(0 < x && x < 3){
+            //如果己方第一行未满
+            for(var y = 0 ; y < 3 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+            //己方第一行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 3 ; y < 9 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+          }
+          // 第二行
+          if(3 < x && x < 6){
+            //如果己方第二行未满
+            for(var y = 3 ; y < 6 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+            //己方第二行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 0 ; y < 9 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+          }
+          // 第三行
+          if(6 < x && x < 9){
+            //如果己方第三行未满
+            for(var y = 6 ; y < 9 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+            //己方第三行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 0 ; y < 6 ; y++){
+              if(ownBoard[y] === 0){
+                console.log("玩家2落点" + y)
+                return y
+              }
+            }
+          }
+        }
+      }
+      //己方棋盘也没有相同点数,按照棋盘顺序放在空位置
+      for(var x = 0 ; x < 9 ; x++){
+        if(ownBoard[x] === 0){
+          console.log("玩家2落点" + y)
+          return x
         }
       }
     }
+
      // 玩家1落点
     if(centreState === 0 && topState === 1 && turn === 1 && hosted1 === 1){
       for(var x = 0 ; x < 9 ; x++){
-        if(ai_otherBoard[x] === 0){
-          console.log("玩家1落点" + x)
-          return(x)
+        //对方棋盘中有和当前骰子点数相同的格子
+        if(ownBoard[x] === figure){
+          // 判定行数
+          // 第一行
+          if(0 < x && x < 3){
+            //如果己方第一行未满
+            for(var y = 0 ; y < 3 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+            //己方第一行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 3 ; y < 9 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+          }
+          // 第二行
+          if(3 < x && x < 6){
+            //如果己方第二行未满
+            for(var y = 3 ; y < 6 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+            //己方第二行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 0 ; y < 9 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+          }
+          // 第三行
+          if(6 < x && x < 9){
+            //如果己方第三行未满
+            for(var y = 6 ; y < 9 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+            //己方第三行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 0 ; y < 6 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+          }
+        }
+      }
+      //对方棋盘没有和己方棋盘相同的点数
+      for(var x = 0 ; x < 9 ; x++){
+        //判断己方棋盘有没有相同的点数，有就放在同一行
+        //己方有相同点数的格子
+        if(otherBoard[x] === figure){
+          // 判定行数
+          // 第一行
+          if(0 < x && x < 3){
+            //如果己方第一行未满
+            for(var y = 0 ; y < 3 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+            //己方第一行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 3 ; y < 9 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+          }
+          // 第二行
+          if(3 < x && x < 6){
+            //如果己方第二行未满
+            for(var y = 3 ; y < 6 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+            //己方第二行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 0 ; y < 9 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+          }
+          // 第三行
+          if(6 < x && x < 9){
+            //如果己方第三行未满
+            for(var y = 6 ; y < 9 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+            //己方第三行已满，就放在己方空的位置上
+            //可通过判定分数来改进落点
+            for(var y = 0 ; y < 6 ; y++){
+              if(otherBoard[y] === 0){
+                console.log("玩家1落点" + y)
+                return y
+              }
+            }
+          }
+        }
+      }
+      //己方棋盘也没有相同点数,按照棋盘顺序放在空位置
+      for(var x = 0 ; x < 9 ; x++){
+        if(otherBoard[x] === 0){
+          console.log("玩家1落点" + y)
+          return x
         }
       }
     }
