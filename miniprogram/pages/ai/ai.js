@@ -597,7 +597,7 @@ Page({
   },
   //AI实现，输入当前轮次己方的棋盘情况、对方的棋盘情况和己方本轮次随机得到的骰子点数，再返回下一步要走哪里
   nextStap(ownBoard,otherBoard,figure){
-    //本模式为手动，这边也可以用AI，计算ownBoard,otherBoard，返回下一步要走哪里
+    //用AI算法，计算ownBoard,otherBoard，返回下一步要走哪里
 
   },
 

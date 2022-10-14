@@ -13,6 +13,8 @@ var topScore =0 //玩家1总分
 var downScore = 0 //玩家2总分
 var top_id  = 0 //玩家1 top 骰子放在哪里
 var down_id = 0 //玩家2 down 骰子放在哪里
+var hosted1 = 0 //玩家1托管标识
+var hosted2 = 0 //玩家2托管标识
 Page({
   data:{
     turn0 : "0",//回合图标标志位
@@ -44,6 +46,34 @@ Page({
     down33 : 'https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/qipan/0.png?sign=ae050d4cc12c676b7ce99e80d1ec1646&t=1665694187',
     touzi : 'https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/qipan/0.png?sign=ae050d4cc12c676b7ce99e80d1ec1646&t=1665694187',
   },
+  //玩家一托管
+  host_switch1(){
+    if(hosted1 === 1)
+      hosted1 = 0
+    else  
+      hosted1 = 1
+    //console.log(turn,hosted1)
+    if(turn === 1 && hosted1 === 1)
+      this.host1();
+  },
+  host1(){
+    this.ai_Host1()
+    console.log("hosted1" + hosted1)
+  },
+  //玩家二托管
+  host_switch2(){
+    if(hosted2 === 1)
+      hosted2 = 0
+    else  
+      hosted2 = 1
+    if(turn === 2 && hosted2 === 1)
+      this.host2()
+      console.log("hosted2" + hosted2)
+  },
+  host2(){
+    this.ai_Host2()
+  },
+  // 页面加载
   onLoad(){
     turn =  Math.floor(Math.random() * 2 + 1)
     this.setData({
@@ -553,7 +583,7 @@ Page({
 
   //玩家1（top）
   player1(){
-    if(centreState === 0 && topState === 1 && turn === 1){
+    if(centreState === 0 && topState === 1 && turn === 1 && hosted1 === 0){
       console.log("调用了player1")
       // //调用函数，确定下一步走哪里
       // this.nextStap
@@ -577,7 +607,7 @@ Page({
     
   //玩家2（down）
   player2(){
-    if(centreState === 0 && downState === 1 && turn === 2){
+    if(centreState === 0 && downState === 1 && turn === 2 && hosted2 === 0){
       console.log("调用了player2")
       // //调用函数，确定下一步走哪里
       // this.nextStap
@@ -599,10 +629,30 @@ Page({
     }
   },
   //AI实现，输入当前轮次己方的棋盘情况、对方的棋盘情况和己方本轮次随机得到的骰子点数，再返回下一步要走哪里
-  nextStap(ownBoard,otherBoard,figure){
+  nextStap(ai_ownBoard=[],ai_otherBoard=[],figure){
     //本模式为手动，这边也可以用AI，计算ownBoard,otherBoard，返回下一步要走哪里
-
+    // 玩家2落点
+    if(centreState === 0 && downState === 1 && turn === 2 && hosted2 === 1){
+      for(var x = 0 ; x < 9 ; x++){
+        if(ai_ownBoard[x] === 0){
+          var y = x + 1
+          console.log("玩家2落点" + y)
+          return(y)
+        }
+      }
+    }
+     // 玩家1落点
+    if(centreState === 0 && topState === 1 && turn === 1 && hosted1 === 1){
+      for(var x = 0 ; x < 9 ; x++){
+        if(ai_otherBoard[x] === 0){
+          var y = x + 1
+          console.log("玩家1落点" + y)
+          return(y)
+        }
+      }
+    }
   },
+
 
   //按钮点击事件down1-9,top1-9,返回的值为：点击的是哪个按钮
   down1(){
@@ -731,4 +781,210 @@ Page({
       this.player1()
     }
   },
+  ai_put_tou(ai_next_step){
+    if(ai_next_step === 1 && downState === 1 && turn ===2){
+      ownBoard[0] = figure
+      var image1 = this.fetchImgAddr(figure)
+      this.setData({
+        down11 : image1
+      })
+      console.log("ownBoard" + ownBoard)
+    }
+    else if(ai_next_step === 2 && downState === 1 && turn ===2){
+      ownBoard[1] = figure
+      var image2 = this.fetchImgAddr(figure)
+      this.setData({
+        down12 : image2
+      })
+      console.log("ownBoard" + ownBoard)
+    }
+    else if(ai_next_step === 3 && downState === 1 && turn ===2){
+      ownBoard[2] = figure
+      var image3 = this.fetchImgAddr(figure)
+      this.setData({
+        down13 : image3
+      })
+      console.log("ownBoard" + ownBoard)
+    }
+    else if(ai_next_step === 4 && downState === 1 && turn ===2){
+      ownBoard[3] = figure
+      var image4 = this.fetchImgAddr(figure)
+      this.setData({
+        down21 : image4
+      })
+      console.log("ownBoard" + ownBoard)
+    }
+    else if(ai_next_step === 5 && downState === 1 && turn ===2){
+      ownBoard[4] = figure
+      var image5 = this.fetchImgAddr(figure)
+      this.setData({
+        down22 : image5
+      })
+      console.log("ownBoard" + ownBoard)
+    }
+    else if(ai_next_step === 6 && downState === 1 && turn ===2){
+      ownBoard[5] = figure
+      var image6 = this.fetchImgAddr(figure)
+      this.setData({
+        down23 : image6
+      })
+      console.log("ownBoard" + ownBoard)
+    }
+    else if(ai_next_step === 7 && downState === 1 && turn ===2){
+      ownBoard[6] = figure
+      var image7 = this.fetchImgAddr(figure)
+      this.setData({
+        down31 : image7
+      })
+      console.log("ownBoard" + ownBoard)
+    }
+    else if(ai_next_step === 8 && downState === 1 && turn ===2){
+      ownBoard[7] = figure
+      var image8 = this.fetchImgAddr(figure)
+      this.setData({
+        down32 : image8
+      })
+      console.log("ownBoard" + ownBoard)
+    }
+    else if(ai_next_step === 9 && downState === 1 && turn ===2){
+      ownBoard[8] = figure
+      var image9 = this.fetchImgAddr(figure)
+      this.setData({
+        down33 : image9
+      })
+      console.log("ownBoard" + ownBoard)
+    }
+    else if(ai_next_step === 1 && topState === 1 && turn ===1){
+      otherBoard[0] = figure
+      var image1 = this.fetchImgAddr(figure)
+      this.setData({
+        top11 : image1
+      })
+      console.log("otherBoard" + otherBoard)
+    }
+    else if(ai_next_step === 2 && topState === 1 && turn ===1){
+      otherBoard[1] = figure
+      var image2 = this.fetchImgAddr(figure)
+        this.setData({
+          top12 : image2
+        })
+        console.log("otherBoard" + otherBoard)
+    }
+    else if(ai_next_step === 3 && topState === 1 && turn ===1){
+      otherBoard[2] = figure
+      var image3 = this.fetchImgAddr(figure)
+        this.setData({
+          top13 : image3
+        })
+        console.log("otherBoard" + otherBoard)
+    }
+    else if(ai_next_step === 4 && topState === 1 && turn ===1){
+      otherBoard[3] = figure
+      var image4 = this.fetchImgAddr(figure)
+        this.setData({
+          top21 : image4
+        })
+        console.log("otherBoard" + otherBoard)
+    }
+    else if(ai_next_step === 5 && topState === 1 && turn ===1){
+      otherBoard[4] = figure
+      var image5 = this.fetchImgAddr(figure)
+        this.setData({
+          top22 : image5
+        })
+        console.log("otherBoard" + otherBoard)
+    }
+    else if(ai_next_step === 6 && topState === 1 && turn ===1){
+      otherBoard[5] = figure
+      var image6 = this.fetchImgAddr(figure)
+        this.setData({
+          top23 : image6
+        })
+        console.log("otherBoard" + otherBoard)
+    }
+    else if(ai_next_step === 7 && topState === 1 && turn ===1){
+      otherBoard[6] = figure
+      var image7 = this.fetchImgAddr(figure)
+        this.setData({
+          top31 : image7
+        })
+        console.log("otherBoard" + otherBoard)
+    }
+    else if(ai_next_step === 8 && topState === 1 && turn ===1){
+      otherBoard[7] = figure
+      var image8 = this.fetchImgAddr(figure)
+        this.setData({
+          top32 : image8
+        })
+        console.log("otherBoard" + otherBoard)
+    }
+    else if(ai_next_step === 9 && topState === 1 && turn ===1){
+      otherBoard[8] = figure
+      var image9 = this.fetchImgAddr(figure)
+        this.setData({
+          top33 : image9
+        })
+        console.log("otherBoard" + otherBoard)
+    }
+  },
+   //AI1操作
+   ai_Host1(){
+    //  通过nextStap的算法计算出下一步的落点位置
+    this.touClick()
+    if(centreState === 0 && topState === 1 && turn === 1 && hosted1 === 1){
+      console.log("调用了ai1")
+      //调用函数，确定下一步走哪里
+      //下一步的值
+      var _nextStap = this.nextStap(ownBoard,otherBoard,figure)
+      console.log("_nextStap " + _nextStap)
+      // //调整为自己下完这一步后的棋盘,top棋盘的调整
+      otherBoard[_nextStap-1] = figure
+      this.ai_put_tou(_nextStap)
+      this.remove()
+      console.log("ai_2_ownBoard" + ownBoard)
+      console.log("ai_2_otherBoard" + otherBoard)
+      this.topCount()
+      this.downCount()
+      this.end()
+      centreState = 1
+      topState = 0
+      turn = 2
+      this.setData({
+        turn0:turn
+      })
+    }
+  },
+   //AI2操作
+  ai_Host2(){
+    //  通过nextStap的算法计算出下一步的落点位置
+    this.touClick()
+    if(centreState === 0 && downState === 1 && turn === 2 && hosted2 === 1){
+      console.log("调用了ai2")
+      // //调用函数，确定下一步走哪里
+      //下一步的值
+      var ai_2_ownBoard = []
+      for(var i = 0 ; i < 9 ; i++){
+        ai_2_ownBoard[i] = ownBoard[i]
+      }
+      
+      var _nextStap = this.nextStap(ownBoard,otherBoard,figure)
+      console.log("_nextStap " + _nextStap)
+      // //调整为自己下完这一步后的棋盘，down棋盘的调整
+      ownBoard[_nextStap-1] = figure
+      this.ai_put_tou(_nextStap)
+      this.remove()
+      console.log("ai_2_ownBoard" + ownBoard)
+      console.log("ai_2_otherBoard" + otherBoard)
+      this.topCount()
+      this.downCount()
+      this.end()
+      centreState = 1
+      downState = 0
+      turn = 1
+      this.setData({
+        turn0:turn
+      })
+    }
+    // 更新棋盘
+  }
 })
