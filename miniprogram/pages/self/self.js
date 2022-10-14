@@ -53,12 +53,13 @@ Page({
     else  
       hosted1 = 1
     //console.log(turn,hosted1)
-    if(turn === 1 && hosted1 === 1)
+    if(turn === 1 && hosted1 === 1){
       this.host1();
+    }
+    console.log("hosted1" + hosted1)
   },
   host1(){
-    this.ai_Host1()
-    console.log("hosted1" + hosted1)
+      this.ai_Host1()
   },
   //玩家二托管
   host_switch2(){
@@ -66,9 +67,10 @@ Page({
       hosted2 = 0
     else  
       hosted2 = 1
-    if(turn === 2 && hosted2 === 1)
-      this.host2()
-      console.log("hosted2" + hosted2)
+    if(turn === 2 && hosted2 === 1){
+        this.host2()
+    }
+    console.log("hosted2" + hosted2)
   },
   host2(){
     this.ai_Host2()
@@ -80,6 +82,7 @@ Page({
       turn0:turn
     })
     console.log(turn)
+    
   },
 
 //获取图片地址
@@ -635,9 +638,8 @@ Page({
     if(centreState === 0 && downState === 1 && turn === 2 && hosted2 === 1){
       for(var x = 0 ; x < 9 ; x++){
         if(ai_ownBoard[x] === 0){
-          var y = x + 1
-          console.log("玩家2落点" + y)
-          return(y)
+          console.log("玩家2落点" + x)
+          return(x)
         }
       }
     }
@@ -645,14 +647,12 @@ Page({
     if(centreState === 0 && topState === 1 && turn === 1 && hosted1 === 1){
       for(var x = 0 ; x < 9 ; x++){
         if(ai_otherBoard[x] === 0){
-          var y = x + 1
-          console.log("玩家1落点" + y)
-          return(y)
+          console.log("玩家1落点" + x)
+          return(x)
         }
       }
     }
   },
-
 
   //按钮点击事件down1-9,top1-9,返回的值为：点击的是哪个按钮
   down1(){
@@ -927,10 +927,163 @@ Page({
         console.log("otherBoard" + otherBoard)
     }
   },
+  // 判断行消除对方骰子
+  ai_remove (_nextStap) {
+    //玩家1回合
+    if(turn === 1 && topState === 1){
+      //第一行
+      if(1 <= _nextStap && _nextStap <= 3){
+        for(var i = 0; i < 3 ; i++){
+          if(otherBoard[_nextStap - 1] === ownBoard[i]){
+            ownBoard[i] = 0
+            var image = this.fetchImgAddr(0)
+            if(ownBoard[0] === 0){
+              this.setData({
+                down11 : image
+              })
+            }
+            if(ownBoard[1] === 0){
+              this.setData({
+                down12 : image
+              })
+            }
+            if(ownBoard[2] === 0){
+              this.setData({
+                down13 : image
+              })
+            } 
+          }
+        }
+      }
+      //第二行
+      if(4 <= _nextStap && _nextStap <= 6){
+        for(var i = 3; i < 6 ; i++){
+          if(otherBoard[_nextStap - 1] === ownBoard[i]){
+            ownBoard[i] = 0
+            var image = this.fetchImgAddr(0)
+            if(ownBoard[3] === 0){
+              this.setData({
+                down21 : image
+              })
+            }
+            if(ownBoard[4] === 0){
+              this.setData({
+                down22 : image
+              })
+            }
+            if(ownBoard[5] === 0){
+              this.setData({
+                down23 : image
+              })
+            } 
+          }
+        }
+      }
+      //第三行
+      if(7 <= _nextStap && _nextStap <= 9){
+        for(var i = 6; i < 9 ; i++){
+          if(otherBoard[_nextStap - 1] === ownBoard[i]){
+            ownBoard[i] = 0
+            var image = this.fetchImgAddr(0)
+            if(ownBoard[6] === 0){
+              this.setData({
+                down31 : image
+              })
+            }
+            if(ownBoard[7] === 0){
+              this.setData({
+                down32 : image
+              })
+            }
+            if(ownBoard[8] === 0){
+              this.setData({
+                down33 : image
+              })
+            } 
+          }
+        }
+      }
+    }
+    //玩家2回合
+    if(turn === 2 && downState === 1){
+      //第一行
+      if(1 <= _nextStap && _nextStap <= 3){
+        for(var i = 0; i < 3 ; i++){
+          if(ownBoard[_nextStap - 1] === otherBoard[i]){
+            otherBoard[i] = 0
+            var image = this.fetchImgAddr(0)
+            if(otherBoard[0] === 0){
+              this.setData({
+                top11 : image
+              })
+            }
+            if(otherBoard[1] === 0){
+              this.setData({
+                top12 : image
+              })
+            }
+            if(otherBoard[2] === 0){
+              this.setData({
+                top13 : image
+              })
+            } 
+          }
+        }
+      }
+      //第二行
+      if(4 <= _nextStap && _nextStap <= 6){
+        for(var i = 3; i < 6 ; i++){
+          if(ownBoard[_nextStap - 1] === otherBoard[i]){
+            otherBoard[i] = 0
+            var image = this.fetchImgAddr(0)
+            if(otherBoard[3] === 0){
+              this.setData({
+                top21 : image
+              })
+            }
+            if(otherBoard[4] === 0){
+              this.setData({
+                top22 : image
+              })
+            }
+            if(otherBoard[5] === 0){
+              this.setData({
+                top23 : image
+              })
+            } 
+          }
+        }
+      }
+      //第三行
+      if(7 <= _nextStap && _nextStap <= 9){
+        for(var i = 6; i < 9 ; i++){
+          if(ownBoard[_nextStap - 1] === otherBoard[i]){
+            otherBoard[i] = 0
+            var image = this.fetchImgAddr(0)
+            if(otherBoard[6] === 0){
+              this.setData({
+                top31 : image
+              })
+            }
+            if(otherBoard[7] === 0){
+              this.setData({
+                top32 : image
+              })
+            }
+            if(otherBoard[8] === 0){
+              this.setData({
+                to33 : image
+              })
+            } 
+          }
+        }
+      }
+    }
+  },
    //AI1操作
    ai_Host1(){
-    //  通过nextStap的算法计算出下一步的落点位置
     this.touClick()
+    //  通过nextStap的算法计算出下一步的落点位置
     if(centreState === 0 && topState === 1 && turn === 1 && hosted1 === 1){
       console.log("调用了ai1")
       //调用函数，确定下一步走哪里
@@ -938,9 +1091,9 @@ Page({
       var _nextStap = this.nextStap(ownBoard,otherBoard,figure)
       console.log("_nextStap " + _nextStap)
       // //调整为自己下完这一步后的棋盘,top棋盘的调整
-      otherBoard[_nextStap-1] = figure
-      this.ai_put_tou(_nextStap)
-      this.remove()
+      otherBoard[_nextStap] = figure
+      this.ai_put_tou(_nextStap+1)
+      this.ai_remove(_nextStap+1)
       console.log("ai_2_ownBoard" + ownBoard)
       console.log("ai_2_otherBoard" + otherBoard)
       this.topCount()
@@ -956,23 +1109,18 @@ Page({
   },
    //AI2操作
   ai_Host2(){
-    //  通过nextStap的算法计算出下一步的落点位置
     this.touClick()
+    //  通过nextStap的算法计算出下一步的落点位置
     if(centreState === 0 && downState === 1 && turn === 2 && hosted2 === 1){
       console.log("调用了ai2")
       // //调用函数，确定下一步走哪里
       //下一步的值
-      var ai_2_ownBoard = []
-      for(var i = 0 ; i < 9 ; i++){
-        ai_2_ownBoard[i] = ownBoard[i]
-      }
-      
       var _nextStap = this.nextStap(ownBoard,otherBoard,figure)
       console.log("_nextStap " + _nextStap)
       // //调整为自己下完这一步后的棋盘，down棋盘的调整
       ownBoard[_nextStap-1] = figure
-      this.ai_put_tou(_nextStap)
-      this.remove()
+      this.ai_put_tou(_nextStap+1)
+      this.ai_remove(_nextStap+1)
       console.log("ai_2_ownBoard" + ownBoard)
       console.log("ai_2_otherBoard" + otherBoard)
       this.topCount()
@@ -986,5 +1134,5 @@ Page({
       })
     }
     // 更新棋盘
-  }
+  },
 })
