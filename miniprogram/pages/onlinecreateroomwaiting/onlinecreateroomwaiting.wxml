@@ -7,7 +7,7 @@
     <!-- 玩家1区域 -->
     <view class="rec1">
        <view wx:if="{{flag}}">
-        <image class="player1_img" src="https://636c-cloud1-8gizt3c91a9e2cee-1307872384.tcb.qcloud.la/%E5%A4%B4%E5%83%8F/%E7%8E%A9%E5%AE%B62%E5%A4%B4%E5%83%8F.jpg?sign=5bfb0af22d1bfa6465533d3dc615c05b&t=1634984623"></image>
+        <image class="player1_img" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/touxiang/player1.png?sign=962cd876f19ad4c4acd101b8afc0d9ec&t=1665707384"></image>
         <view class="player1_idrec">
         <view class="player_id">go!go!go!</view>
       </view>
@@ -17,7 +17,7 @@
     <view class="roomId">房间号：{{roomid}}</view>
     <!-- 玩家2区域 -->
     <view class="rec2">
-      <image class="player2_img" src="https://636c-cloud1-8gizt3c91a9e2cee-1307872384.tcb.qcloud.la/%E5%A4%B4%E5%83%8F/%E7%8E%A9%E5%AE%B61%E5%A4%B4%E5%83%8F.jpg?sign=43b5a9d06cecc27beeb7ca51eb514d34&t=1634985283"></image>
+      <image class="player2_img" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/touxiang/player2.png?sign=4647efe5c8377c3cb3cc3e18f79077ab&t=1665707398"></image>
       <view class="player2_idrec">
          <view class="player_id">go!go!go!</view>
       </view>

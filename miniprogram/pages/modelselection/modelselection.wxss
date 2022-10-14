@@ -120,6 +120,10 @@
   box-shadow: 0 10rpx #666;
   transform: translateY(4px);
 }
+.banners image{
+  max-width: 530rpx;
+  max-height: 370rpx;
+}
 .see_setting{
   background-color:#c6d3a8;
   color: rgb(253,247,247);

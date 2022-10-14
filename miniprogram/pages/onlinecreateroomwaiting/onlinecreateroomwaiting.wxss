@@ -9,7 +9,7 @@
 .rec0{
   position: relative;
   left: 88rpx;
-  top: 230rpx;
+  top: 50rpx;
 }
 ._title{
   color: rgb(241,249,249);

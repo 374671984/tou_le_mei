@@ -1,2 +1,128 @@
 <!--pages/ai/ai.wxml-->
-<text>pages/ai/ai.wxml</text>
+<!-- 背景 -->
+<image class="backgroundImg" src='https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/background/online_createroom_waitting.jpg?sign=385d5caac5d998c00806eb2d544245de&t=1665473783' lazy-load="true"></image>
+
+<!-- 九宫格区 -->
+  <!-- 玩家1九宫格区（上） -->
+<view class="qipan_top">
+  <ul class="top" id="top">
+    <li>
+      <image src="{{top11}}" id="t11" bindtap="top1"></image>
+    </li>
+    <li>
+      <image src="{{top12}}" id="t12" bindtap="top2"></image>
+    </li>
+    <li>
+      <image src="{{top13}}" id="t13" bindtap="top3"></image>
+    </li>
+    <li>
+      <image src="{{top21}}" id="t21" bindtap="top4"></image>
+    </li>
+    <li>
+      <image src="{{top22}}" id="t22" bindtap="top5"></image>
+    </li>
+    <li>
+      <image src="{{top23}}" id="t23" bindtap="top6"></image>
+    </li>
+    <li>
+      <image src="{{top31}}" id="t31" bindtap="top7"></image>
+    </li>
+    <li>
+    <image src="{{top32}}" id="t32" bindtap="top8"></image>
+    </li>
+    <li>
+      <image src="{{top33}}" id="t33" bindtap="top9"></image>
+    </li>
+  </ul>
+</view>
+<!-- 骰子 -->
+<view>
+  <image class="tou" src="{{touzi}}" bindtap="touClick" id="touId" ></image>
+</view>
+<!-- player2九宫格区 -->
+<view class="qipan_down">
+  <ul class="down" id="down">
+    <li>
+      <image src="{{down11}}" id="d11" bindtap="down1"></image>
+    </li>
+    <li>
+      <image src="{{down12}}" id="d12" bindtap="down2"></image>
+    </li>
+    <li>
+      <image src="{{down13}}" id="d13" bindtap="down3"></image>
+    </li>
+    <li>
+      <image src="{{down21}}" id="d21" bindtap="down4"></image>
+    </li>
+    <li>
+      <image src="{{down22}}" id="d22" bindtap="down5"></image>
+    </li>
+    <li>
+      <image src="{{down23}}" id="d23" bindtap="down6"></image>
+    </li>
+    <li>
+      <image src="{{down31}}" id="d31" bindtap="down7"></image>
+    </li>
+    <li>
+      <image src="{{down32}}" id="d32" bindtap="down8"></image>
+    </li>
+    <li>
+      <image src="{{down33}}" id="d33" bindtap="down9"></image>
+    </li>
+  </ul>
+</view>
+
+<!-- 玩家信息 -->
+<!-- 玩家1(上) -->
+<view class="player1">
+  <!-- 玩家1头像 -->
+  <view>
+    <!-- 头像 -->
+    <image src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/touxiang/player1.png?sign=74cd032f2f98608c6bf81cc0cab36abe&t=1665586945" class="player1_touxiang" lazy-load="true"></image>
+    <!-- 托管 -->
+    <view bindtap = "host_switch1" class="player1_tuoguan">🐶托管</view>
+    <!-- 玩家名称 -->
+    <view class="player1_name">player1</view>
+    <!-- 回合图标 -->
+    <image wx:if="{{turn0==1}}" class="tag1" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/qipan/tag.png?sign=472b7ea82cb31ad0a3c50030b7bb60e5&t=1665700797"></image>
+    <!-- player1分数 -->
+    <li class="player1-score">
+    <!-- 第一行分数 -->
+    <view class="player1-1-score">一{{top_1_score}}</view>
+    <!-- 第二行分数 -->
+    <view class="player1-2-score">二{{top_2_score}}</view>
+    <!-- 第三行分数 -->
+    <view class="player1-3-score">三{{top_3_score}}</view>
+    <!-- 总分 -->
+    <view class="player1-total-score">总分{{top_score}}</view>
+    </li>
+  </view>
+</view>
+
+<!-- 玩家2（下） -->
+<view class="player2">
+  <!-- 玩家2头像 -->
+  <view>
+    <!-- 头像 -->
+    <image src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/touxiang/player2.png?sign=b48bfd616fac8776e4bf77d118727e63&t=1665586622" class="player2_touxiang" lazy-load="true"></image>
+    <!-- 托管 -->
+    <view bindtap = "host_switch2" class="player2_tuoguan">🐶托管</view>
+    <!-- 玩家名称 -->
+    <view class="player2_name">player2</view>
+    <!-- 回合图标 -->
+    <image wx:if="{{turn0==2}}" class="tag2" src="https://6d79-my-test-5gsknxhh42d2909f-1314291073.tcb.qcloud.la/qipan/tag.png?sign=472b7ea82cb31ad0a3c50030b7bb60e5&t=1665700797"></image>
+    <!-- player2分数 -->
+    <li class ="player2-score">
+    <!-- 第一行分数 -->
+    <view class="player2-1-score">一{{down_1_score}}</view>
+    <!-- 第二行分数 -->
+    <view class="player2-2-score">二{{down_2_score}}</view>
+    <!-- 第三行分数 -->
+    <view class="player2-3-score">三{{down_3_score}}</view>
+    <!-- 总分 -->
+    <view class="player2-total-score">总分{{down_score}}</view>
+    </li>
+
+  </view>
+</view>
+
