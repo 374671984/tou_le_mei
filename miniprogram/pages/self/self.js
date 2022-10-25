@@ -82,7 +82,7 @@ Page({
       turn0:turn
     })
     console.log(turn)
-    
+
   },
 
 //获取图片地址
@@ -1385,5 +1385,66 @@ Page({
       })
     }
     // 更新棋盘
+  },
+    /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    ownBoard = [0,0,0,0,0,0,0,0,0];
+    otherBoard = [0,0,0,0,0,0,0,0,0];
+    topScore =0 //玩家1总分
+    downScore = 0 //玩家2总分
+    var image = this.fetchImgAddr(0)
+    this.setData({
+      top11 : image,
+      top12 : image,
+      top13 : image,
+      top21 : image,
+      top22 : image,
+      top23 : image,
+      top31 : image,
+      top32 : image,
+      top33 : image,
+      down11 : image,
+      down12 : image,
+      down13 : image,
+      down21 : image,
+      down22 : image,
+      down23 : image,
+      down31 : image,
+      down32 : image,
+      down33: image,
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    ownBoard = [0,0,0,0,0,0,0,0,0];
+    otherBoard = [0,0,0,0,0,0,0,0,0];
+    topScore =0 //玩家1总分
+    downScore = 0 //玩家2总分
+    var image = this.fetchImgAddr(0)
+    this.setData({
+      top11 : image,
+      top12 : image,
+      top13 : image,
+      top21 : image,
+      top22 : image,
+      top23 : image,
+      top31 : image,
+      top32 : image,
+      top33 : image,
+      down11 : image,
+      down12 : image,
+      down13 : image,
+      down21 : image,
+      down22 : image,
+      down23 : image,
+      down31 : image,
+      down32 : image,
+      down33: image,
+    })
   },
 })

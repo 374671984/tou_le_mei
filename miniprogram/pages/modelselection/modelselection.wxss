@@ -121,8 +121,8 @@
   transform: translateY(4px);
 }
 .banners image{
-  max-width: 530rpx;
-  max-height: 370rpx;
+  max-width: 500rpx;
+  max-height: 330rpx;
 }
 .see_setting{
   background-color:#c6d3a8;

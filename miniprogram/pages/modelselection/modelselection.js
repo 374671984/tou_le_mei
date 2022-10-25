@@ -17,7 +17,7 @@ Page({
   go_online(){
     console.log("点击了go_online")
     wx.navigateTo({
-      url: '/pages/onlinelogin/onlinelogin',
+      url: '/pages/onlineselect/onlineselect',
     })
     console.log("跳转成功")
   },
@@ -65,5 +65,18 @@ Page({
       icon: 'error',
       duration: 2000
     })
-  }
+  },
+    /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
 })
